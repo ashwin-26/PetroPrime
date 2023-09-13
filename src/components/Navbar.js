@@ -4,6 +4,7 @@ import logo from '../logo.svg';
 import { domainToASCII } from 'url';
 import styled from 'styled-components';
 import {ButtonContainer} from './Button';
+import "./componenetsStyle.css"
 
 //1.15.00 de kaldım
 export default class Navbar extends Component{
@@ -24,7 +25,7 @@ export default class Navbar extends Component{
 
                    </li>
                </ul>
-               <Link to='/cart' className="ml-auto">
+               <Link to='/cart' className="cartButton">
                    <ButtonContainer>
                     <span className="mr-2">
                     <i className="fas fa-cart-plus" />
@@ -34,16 +35,25 @@ export default class Navbar extends Component{
                    </ButtonContainer>
 
                </Link>
-               <Link to='/form' className="ml-auto">
+               <Link to='/Login' className="ml-auto">
                    <ButtonContainer>
                     <span className="mr-2">
-                    <i className="fas fa" />
                        Login
                     </span>
                      
                    </ButtonContainer>
 
                </Link>
+               {/* <Link to='/signup' className="ml-auto">
+                   <ButtonContainer>
+                    <span className="mr-2">
+                       Signup
+                    </span>
+                     
+                   </ButtonContainer>
+
+               </Link> */}
+
 
 
 
