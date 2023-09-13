@@ -4,19 +4,23 @@
   --mainWhite: #f3f3f3;
   --mainDark: #232528;
   --mainYellow: #ffa400 ;
+  --mainRed: #A73121;
+  --mainFontColor: #F2E8C6;
+  --lightGrey: #9E9FA5;
 }
 body{
-  font-family: "Oswald", sans-serif !important;
+  font-family: 'Times New Roman', Times, serif !important;
   background: var(--mainWhite) !important;
   color: var(--mainDark) !important;  
 }
 .text-title{
-  font-family: 'Permanent Marker', cursive;
-  letter-spacing: 0.3rem;
+  font-family: 'Times New Roman', Times, serif !important;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 .text-blue{
-  color: var(--mainBlue);
+  color: black;
+  font-family:'Times New Roman', Times, serif;
 }
 .text-bright{
   color: var(--lightBlue);
