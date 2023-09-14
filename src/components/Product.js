@@ -76,8 +76,11 @@ Product.propTypes = {
 //styling
 const ProductWrapper = styled.div`
 .card{
-  border-color: transparent;
+  height: 300px;
+  width:300px;
+  border-color: 5px solid black;
   transition:all 1s linear;
+  margin: 10px;
 }
 .card-footer{
   background: transparent;
@@ -98,6 +101,8 @@ const ProductWrapper = styled.div`
 .img-container{
   position: relative;
   overflow: hidden;
+  width:200px;
+  height:200px;
 
 }
 .card-img-top{
