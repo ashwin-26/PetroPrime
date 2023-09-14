@@ -42,7 +42,7 @@ const App = () => {
     <React.Fragment>
       <Navbar/>
       <Switch>
-        <Router>
+        {/* <Router> */}
         <Route  exact path="/" component={ProductList} />
         <Route path="/details" component={Details} />
         <Route path="/cart" component={Cart} />
@@ -69,7 +69,7 @@ const App = () => {
             <CustomerPage />
           </Route>
         ) : null}
-        </Router>
+        {/* </Router> */}
       </Switch>
      
 
