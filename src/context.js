@@ -178,6 +178,14 @@ class ProductProvider extends Component {
         }
         );
     }
+
+    processCart = () => {
+        this.clearCart(); // Clear the cart
+
+        // Show an alert indicating payment is completed
+        alert('Payment is completed. Thank you for your purchase!');
+
+    }
     addTotals =()=>{
         let subTotal = 0;
         this.state.cart.map(item => (subTotal += item.total));
@@ -234,7 +242,8 @@ tester= () => {
                     increment: this.increment,
                     decrement: this.decrement,
                     removeItem: this.removeItem,
-                    clearCart: this.clearCart
+                    clearCart: this.clearCart,
+                    processCart: this.processCart
 
             }}>
             

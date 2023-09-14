@@ -9,32 +9,13 @@ import Default from "./components/Default";
 import Cart from "./components/Cart";
 import Modal from './components/Modal';
 
-//Login
-import Login from "./components/LoginSingup/Login";
-import Registration from "./components/LoginSingup/Registration"
-import SupplierPage from "./components/LoginSingup/SupplierPage"
-import CustomerPage from "./components/LoginSingup/CustomerPage"
-
+import CustomerLogin from './components/Login/CustomerLogin';
+import CustomerSignup from './components/SignUp/CustomerSignUp';
+import SupplierLogin from './components/Login/SupplierLogin';
+import SupplierSignup from './components/SignUp/SupplierSignUp';
 
 const App = () => {
 
-  const [user, setUser] = useState(null);
-
-  const handleRegistration = (userData) => {
-    // Implement registration logic and set the user state
-    // For simplicity, we'll just set the user here
-    setUser(userData);
-  };
-
-  const handleLogin = (userData) => {
-    // Implement login logic and set the user state
-    // For simplicity, we'll just set the user here
-    setUser(userData);
-  };
-
-  const logout = () => {
-    setUser(null);
-  };
 
 
 
@@ -42,34 +23,15 @@ const App = () => {
     <React.Fragment>
       <Navbar/>
       <Switch>
-        {/* <Router> */}
+        
         <Route  exact path="/" component={ProductList} />
         <Route path="/details" component={Details} />
         <Route path="/cart" component={Cart} />
-        
-        <Route component={Default}/>
-        {user ? (
-          <button onClick={logout}>Logout</button>
-        ) : (
-          <Redirect to="/login" />
-        )}
-        <Route path="/register" exact>
-          <Registration handleRegistration={handleRegistration} />
-        </Route>
-        <Route path="/login" exact>
-          <Login handleLogin={handleLogin} />
-        </Route>
-        {user && user.type === 'supplier' ? (
-          <Route path="/supplier" exact>
-            <SupplierPage />
-          </Route>
-        ) : null}
-        {user && user.type === 'customer' ? (
-          <Route path="/customer" exact>
-            <CustomerPage />
-          </Route>
-        ) : null}
-        {/* </Router> */}
+        <Route path="/customer/login" component={CustomerLogin} />
+          <Route path="/customer/signup" component={CustomerSignup} />
+          <Route path="/supplier/login" component={SupplierLogin} />
+          <Route path="/supplier/signup" component={SupplierSignup} />
+     
       </Switch>
      
 
