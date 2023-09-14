@@ -30,6 +30,7 @@ const CustomerLogin = () => {
       if (responseBody) {
         alert("Login Successful")
       } else {
+        
       }
     } catch (error) {
       console.error('Error logging in:', error);

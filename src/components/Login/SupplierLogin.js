@@ -29,7 +29,7 @@ const SupplierLogin = () => {
       if (responseBody) {
         console.log(responseBody, "Success Supplier");
       } else {
-        // Handle login error, display an error message
+
       }
     } catch (error) {
       console.error('Error logging in:', error);
