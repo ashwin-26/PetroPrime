@@ -56,7 +56,7 @@ export default class Navbar extends Component{
                     </span>
                    </ButtonContainer>
                </Link>
-               <Link to='/supplier/signup' className="ml-auto">
+               <Link to='/Supplier/Register' className="ml-auto">
                    <ButtonContainer>
                     <span className="mr-2">
                        SSignUp

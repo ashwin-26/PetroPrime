@@ -6,16 +6,29 @@ const CustomerLogin = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
+
+    if (!email || !password) {
+      console.log("Email and password are required.");
+      return;
+    }
+    let logPar = {
+      "customerEmail":email,
+      "customerPassword":password
+    }
+
     try {
-      const response = await fetch('/api/customer/login', {
+      const response = await fetch('http://localhost:5117/api/Customer/Login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(logPar),
       });
 
-      if (response.ok) {
+      let responseBody = await response.json();
+
+      if (responseBody) {
+        alert("Login Successful")
       } else {
       }
     } catch (error) {

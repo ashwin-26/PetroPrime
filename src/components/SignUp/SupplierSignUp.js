@@ -10,17 +10,29 @@ const SupplierSignup = () => {
 
   const handleSignup = async () => {
     try {
-      // Send a POST request to your backend API to create a supplier account
-      const response = await fetch('/api/supplier/signup', {
+      let para = {
+        "supplierName": name,
+        "supplierEmail": email,
+        "supplierPassword": password,
+        "supplierPhone": phone,
+        "address": address,
+        "licenseNumber": license
+      }
+
+
+      const response = await fetch('http://localhost:5117/api/Supplier/Register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(para),
       });
 
-      if (response.ok) {
-        // Signup successful, handle redirection or state update
+      const responseBody = await response.json();
+      console.log(responseBody);
+
+      if (responseBody) {
+        console.log(responseBody);
       } else {
         // Handle signup error, display an error message
       }
