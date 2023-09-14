@@ -16,9 +16,9 @@ const SupplierLogin = () => {
       });
 
       if (response.ok) {
-        // Login successful, handle redirection or state update
+        
       } else {
-        // Handle login error, display an error message
+
       }
     } catch (error) {
       console.error('Error logging in:', error);

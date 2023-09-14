@@ -16,7 +16,9 @@ const CustomerLogin = () => {
       });
 
       if (response.ok) {
+
       } else {
+        
       }
     } catch (error) {
       console.error('Error logging in:', error);
