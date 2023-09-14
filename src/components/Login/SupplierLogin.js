@@ -12,8 +12,8 @@ const SupplierLogin = () => {
     }
 
     let parSLog = {
-      "supplierEmail":email,
-      "supplierPassword":password
+      "Email":email,
+      "Password":password
     }
     try {
       // Send a POST request to your backend API to verify supplier login

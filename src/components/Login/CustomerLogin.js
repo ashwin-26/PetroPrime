@@ -12,8 +12,8 @@ const CustomerLogin = () => {
       return;
     }
     let logPar = {
-      "customerEmail":email,
-      "customerPassword":password
+      "Email":email,
+      "Password":password
     }
 
     try {
