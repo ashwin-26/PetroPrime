@@ -3,20 +3,32 @@ import React, { useState } from 'react';
 const CustomerSignup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name,setName] = useState('');
+  const [phone, setPhone] = useState(0)
 
   const handleSignup = async () => {
     try {
-      // Send a POST request to your backend API to create a customer account
-      const response = await fetch('/api/customer/signup', {
+      let para = {
+        "customerName": name,
+        "customerEmail": email,
+        "customerPassword": password,
+        "customerPhone": phone
+      }
+      
+      const response = await fetch('http://localhost:5117/api/Customer/Register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(para),
       });
 
-      if (response.ok) {
-        // Signup successful, handle redirection or state update
+      const responseBody = await response.json();
+      console.log(responseBody);
+
+      if (responseBody) {
+        // console.log("Signup suc\\\cessful");
+        console.log(responseBody);
       } else {
         // Handle signup error, display an error message
       }
@@ -30,6 +42,12 @@ const CustomerSignup = () => {
       <h2>Customer Signup</h2>
       <input
         type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="text"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -39,6 +57,12 @@ const CustomerSignup = () => {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Phone"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
       />
       <button onClick={handleSignup}>Signup</button>
     </div>

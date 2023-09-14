@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 const SupplierSignup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [license, setLicense] = useState('');
 
   const handleSignup = async () => {
     try {
@@ -30,6 +34,12 @@ const SupplierSignup = () => {
       <h2>Supplier Signup</h2>
       <input
         type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="text"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -39,6 +49,24 @@ const SupplierSignup = () => {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Phone"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Address"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="License Number"
+        value={license}
+        onChange={(e) => setLicense(e.target.value)}
       />
       <button onClick={handleSignup}>Signup</button>
     </div>
