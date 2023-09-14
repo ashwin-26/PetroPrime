@@ -13,13 +13,61 @@ import CustomerLogin from './components/Login/CustomerLogin';
 import CustomerSignup from './components/SignUp/CustomerSignUp';
 import SupplierLogin from './components/Login/SupplierLogin';
 import SupplierSignup from './components/SignUp/SupplierSignUp';
+import ProductForm from './components/ProductForm';
 
 const App = () => {
 
   const [customerLoggedIn, setCustomerLoggedIn] = useState(false);
-  const [customerSignedUp, setCustomerSignedUp] = useState(false);
-  const [supplierLoggedIn, setSupplierLoggedIn] = useState(false);
-  const [supplierSignedUp, setSupplierSignedUp] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [supplierLoggedIn, setSupplierLoggedIn] = useState(false)
+  const [supplierRegistration, setSupplierRegistration] = useState(false)
+
+
+
+
+  
+  const handleCustomerLogin = (loginResponse) => {
+    // Check the response from the backend
+    if (loginResponse === 'success') {
+      setCustomerLoggedIn(true);
+    } else {
+      // Handle unsuccessful login here if needed
+    }
+  };
+
+  const handleCustomerRegistration = (registrationResponse) => {
+    // Check the response from the backend
+    if (registrationResponse === 'success') {
+      setRegistrationSuccess(true);
+    } else {
+      
+    }
+  };
+
+  const handleSupplierLogin = (loginResponse) => {
+    // Check the response from the backend
+    if (loginResponse === 'success') {
+      setSupplierLoggedIn(true);
+    } else {
+      // Handle unsuccessful login here if needed
+    }
+  };
+
+  const handleSupplierRegistration = (registrationResponse) => {
+    // Check the response from the backend
+    if (registrationResponse === 'success') {
+      setSupplierRegistration(true);
+    } else {
+      
+    }
+  };
+
+
+
+
+
+
+
 
 
 
@@ -31,43 +79,58 @@ const App = () => {
         <Route  exact path="/" component={ProductList} />
         <Route path="/details" component={Details} />
         <Route path="/cart" component={Cart} />
-        {/* <Route path="/Customer/Login" component={CustomerLogin} />
-          <Route path="/Customer/Register" component={CustomerSignup} />
+        <Route path="/Product/AddProduct" component={ProductForm}/>
+        {/* <Route path="/Customer/Login" component={CustomerLogin} /> */}
+        <Route
+            path="/Customer/Login"
+            render={() =>
+              customerLoggedIn ? (
+                <Redirect to="/" />
+              ) : (
+                <CustomerLogin onLogin={handleCustomerLogin} />
+              )
+            }
+          />
+          {/* <Route path="/Customer/Register" component={CustomerSignup} /> */}
+          <Route
+            path="/Customer/Register"
+            render={() =>
+              registrationSuccess ? (
+                <Redirect to="/Customer/Login" />
+              ) : (
+                <CustomerSignup onRegistration={handleCustomerRegistration} />
+              )
+            }
+          />
+            <Route
+            path="/Supplier/Login"
+            render={() =>
+              supplierLoggedIn ? (
+                <Redirect to="/Product/AddProduct" />
+              ) : (
+                <SupplierLogin onLogin={handleSupplierLogin} />
+              )
+            }
+          />
+          {/* <Route path="/Customer/Register" component={CustomerSignup} /> */}
+          <Route
+            path="/Supplier/Register"
+            render={() =>
+              supplierRegistration ? (
+                <Redirect to="/Supplier/Login" />
+              ) : (
+                <SupplierSignup onRegistration={handleSupplierRegistration} />
+              )
+            }
+          />
+
+
+
+
+{/* 
           <Route path="/Supplier/Login" component={SupplierLogin} />
           <Route path="/Supplier/Register" component={SupplierSignup} /> */}
-          {customerLoggedIn || customerSignedUp ? (
-          <Redirect to="/customer/products" />
-        ) : (
-          <>
-            <Route path="/Customer/Login">
-              <CustomerLogin
-                onSuccess={() => setCustomerLoggedIn(true)}
-              />
-            </Route>
-            <Route path="/Customer/Register">
-              <CustomerSignup
-                onSuccess={() => setCustomerSignedUp(true)}
-              />
-            </Route>
-          </>
-        )}
-        {supplierLoggedIn || supplierSignedUp ? (
-          <Redirect to="/" />
-        ) : (
-          <>
-            <Route path="/Supplier/Login">
-              <SupplierLogin
-                onSuccess={() => setSupplierLoggedIn(true)}
-              />
-            </Route>
-            <Route path="/Supplier/Register">
-              <SupplierSignup
-                onSuccess={() => setSupplierSignedUp(true)}
-              />
-            </Route>
-          </>
-        )}
-        <Redirect to="/" />
+         
      
       </Switch>
      

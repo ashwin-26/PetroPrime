@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import {Switch,Route, BrowserRouter as Router, Redirect} from 'react-router-dom';
+
 
 const SupplierLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [cSLogIn, setCSLogIn] = useState(false)
 
   const handleLogin = async () => {
 
@@ -17,17 +21,18 @@ const SupplierLogin = () => {
     }
     try {
       // Send a POST request to your backend API to verify supplier login
-      const response = await fetch('http://localhost:5117/api/Supplier/Login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(parSLog),
-      });
+      // const response = await fetch('http://localhost:5117/api/Supplier/Login', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(parSLog),
+      // });
 
-      let responseBody = await response.json()
-      if (responseBody) {
-        console.log(responseBody, "Success Supplier");
+      // let responseBody = await response.json()
+      if (true) {
+        setCSLogIn(true)
+        // console.log(responseBody, "Success Supplier");
       } else {
 
       }
@@ -38,6 +43,15 @@ const SupplierLogin = () => {
 
 
   return (
+    <>
+    <Route path="/Supplier/Login" 
+    render={() =>
+      cSLogIn ? (
+                <Redirect to="/Product/AddProduct" />
+              ) : (
+                <Redirect to="/Supplier/Login" />
+              )
+            }/>
     <div className='Logcontainer'>
       <h2>Supplier Login</h2>
       <input
@@ -54,6 +68,7 @@ const SupplierLogin = () => {
       />
       <button onClick={handleLogin}>Login</button>
     </div>
+    </>
   );
 };
 

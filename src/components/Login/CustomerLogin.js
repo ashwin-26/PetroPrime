@@ -1,9 +1,17 @@
 // CustomerLogin.js
 import React, { useState } from 'react';
 
+import {Switch,Route, BrowserRouter as Router, Redirect} from 'react-router-dom';
+
+
+
 const CustomerLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [cLogIn, setCLogIn] = useState(false)
+  const [route, setRoute] = useState(false)
+ 
 
   const handleLogin = async () => {
 
@@ -26,9 +34,12 @@ const CustomerLogin = () => {
       });
 
       let responseBody = await response.json();
+     
 
       if (responseBody) {
         alert("Login Successful")
+       setCLogIn(true)
+       setRoute(true)
       } else {
         
       }
@@ -38,9 +49,17 @@ const CustomerLogin = () => {
   };
 
   return (
+    <>
+    <Route path="/Customer/Login" 
+    render={() =>
+      cLogIn ? (
+                <Redirect to="/" />
+              ) : (
+                <Redirect to="/Customer/Login" />
+              )
+            }/>
     <div className='Logcontainer'>
       <h2>Customer Login</h2>
-      
       <input
         type="text"
         placeholder="Email"
@@ -54,7 +73,9 @@ const CustomerLogin = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={handleLogin}>Login</button>
+
     </div>
+    </>
   );
 };
 

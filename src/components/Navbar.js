@@ -35,7 +35,7 @@ export default class Navbar extends Component{
                    </ButtonContainer>
 
                </Link>
-               <Link to='/customer/login' className="ml-auto">
+               <Link to='/Customer/Login' className="ml-auto">
                    <ButtonContainer>
                     <span className="mr-2">
                        CLogin
@@ -49,7 +49,7 @@ export default class Navbar extends Component{
                     </span>
                    </ButtonContainer>
                </Link>
-               <Link to='/supplier/login' className="ml-auto">
+               <Link to='/Supplier/Login' className="ml-auto">
                    <ButtonContainer>
                     <span className="mr-2">
                        SLogin
