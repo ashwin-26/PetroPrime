@@ -42,7 +42,7 @@ export default class Navbar extends Component{
                     </span>
                    </ButtonContainer>
                </Link>
-               <Link to='/customer/signup' className="ml-auto">
+               <Link to='/Customer/Register' className="ml-auto">
                    <ButtonContainer>
                     <span className="mr-2">
                        CSignUp
