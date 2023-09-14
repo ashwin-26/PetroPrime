@@ -31,9 +31,7 @@ class ProductProvider extends Component {
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
-    //5.10
-    //for working on cart page we need to not leave the cart array as empty.
-    //cart: [],    so it is gonna be like below for temporarily.
+  
 
    };
    componentDidMount(){
@@ -71,10 +69,7 @@ class ProductProvider extends Component {
        );
     }
    addToCart = (id) => {
-       //Before everything, to check the method's way logically
-       // console.log(`hello from add to cart id is ${id}`); 
-
-    //I dont wanna to manupulate the state directly out of the setState method
+       
        let tempProducts = [...this.state.products];
        const index = tempProducts.indexOf(this.getItem(id));
        const product = tempProducts[index];
@@ -183,6 +178,14 @@ class ProductProvider extends Component {
         }
         );
     }
+
+    processCart = () => {
+        this.clearCart(); // Clear the cart
+
+        // Show an alert indicating payment is completed
+        alert('Payment is completed. Thank you for your purchase!');
+
+    }
     addTotals =()=>{
         let subTotal = 0;
         this.state.cart.map(item => (subTotal += item.total));
@@ -239,7 +242,8 @@ tester= () => {
                     increment: this.increment,
                     decrement: this.decrement,
                     removeItem: this.removeItem,
-                    clearCart: this.clearCart
+                    clearCart: this.clearCart,
+                    processCart: this.processCart
 
             }}>
             

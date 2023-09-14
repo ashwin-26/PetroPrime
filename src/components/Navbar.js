@@ -4,6 +4,7 @@ import logo from '../logo.svg';
 import { domainToASCII } from 'url';
 import styled from 'styled-components';
 import {ButtonContainer} from './Button';
+import "./componenetsStyle.css"
 
 //1.15.00 de kaldım
 export default class Navbar extends Component{
@@ -11,33 +12,58 @@ export default class Navbar extends Component{
     render(){
         return (
            <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
-               {/* 
-https://www.iconfinder.com/icons/1243689/call_phone_icon
-Creative Commons (Attribution 3.0 Unported);
-               https://www.iconfinder.com/Makoto_msk */}
+            
                <Link to = '/'>
-               <img src={logo} alt="store" className="navbar-brand"/>
+               {/* <img src={logo} alt="store" className="navbar-brand"/> */}
 
                </Link>
-               <ul className="navbar-nav align-items-center">
-                   <li className="nav-item ml-5">
+               <ul className="navbar-nav">
+                   <li className="nav-item ml-3">
                     <Link to = "/" className="nav-link">
-                        products
-
+                        PetroPrime
                     </Link>
 
                    </li>
                </ul>
-               <Link to='/cart' className="ml-auto">
+               <Link to='/cart' className="cartButton">
                    <ButtonContainer>
                     <span className="mr-2">
                     <i className="fas fa-cart-plus" />
-                       my cart 
+                       Cart 
                     </span>
                      
                    </ButtonContainer>
 
                </Link>
+               <Link to='/customer/login' className="ml-auto">
+                   <ButtonContainer>
+                    <span className="mr-2">
+                       CLogin
+                    </span>
+                   </ButtonContainer>
+               </Link>
+               <Link to='/customer/signup' className="ml-auto">
+                   <ButtonContainer>
+                    <span className="mr-2">
+                       CSignUp
+                    </span>
+                   </ButtonContainer>
+               </Link>
+               <Link to='/supplier/login' className="ml-auto">
+                   <ButtonContainer>
+                    <span className="mr-2">
+                       SLogin
+                    </span>
+                   </ButtonContainer>
+               </Link>
+               <Link to='/supplier/signup' className="ml-auto">
+                   <ButtonContainer>
+                    <span className="mr-2">
+                       SSignUp
+                    </span>
+                   </ButtonContainer>
+               </Link>
+
 
 
 
@@ -46,10 +72,10 @@ Creative Commons (Attribution 3.0 Unported);
     }
 }
 const NavWrapper = styled.nav`
-background: var(--mainBlue);
+background: var(--mainDark);
 .nav-link{
     color: var(--mainWhite) !important;
-    font-size: 1.3rem;
+    font-size: 20px;
     text-transform: capitalize;
     
 }
