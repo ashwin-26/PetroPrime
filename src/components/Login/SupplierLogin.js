@@ -5,18 +5,29 @@ const SupplierLogin = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
+
+    if (!email || !password) {
+      console.log("Email and password are required.");
+      return;
+    }
+
+    let parSLog = {
+      "supplierEmail":email,
+      "supplierPassword":password
+    }
     try {
       // Send a POST request to your backend API to verify supplier login
-      const response = await fetch('/api/supplier/login', {
+      const response = await fetch('http://localhost:5117/api/Supplier/Login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(parSLog),
       });
 
-      if (response.ok) {
-        
+      let responseBody = await response.json()
+      if (responseBody) {
+        console.log(responseBody, "Success Supplier");
       } else {
 
       }
