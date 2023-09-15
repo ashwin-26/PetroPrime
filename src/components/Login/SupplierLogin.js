@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {Switch,Route, BrowserRouter as Router, Redirect} from 'react-router-dom';
 
 
@@ -19,19 +19,22 @@ const SupplierLogin = () => {
       "Email":email,
       "Password":password
     }
+    
+
     try {
       // Send a POST request to your backend API to verify supplier login
-      // const response = await fetch('http://localhost:5117/api/Supplier/Login', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(parSLog),
-      // });
+      const response = await fetch('http://localhost:5117/api/Supplier/Login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(parSLog),
+      });
 
-      // let responseBody = await response.json()
-      if (true) {
+      let responseBody = await response.json()
+      if (responseBody) {
         setCSLogIn(true)
+        
         // console.log(responseBody, "Success Supplier");
       } else {
 
@@ -44,6 +47,7 @@ const SupplierLogin = () => {
 
   return (
     <>
+
     <Route path="/Supplier/Login" 
     render={() =>
       cSLogIn ? (

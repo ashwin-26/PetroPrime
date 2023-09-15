@@ -27,18 +27,18 @@ const SupplierSignup = () => {
         licenseNumber: license,
       };
 
-      // const response = await fetch('http://localhost:5117/api/Supplier/Register', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(para),
-      // });
+      const response = await fetch('http://localhost:5117/api/Supplier/Register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(para),
+      });
 
-      // const responseBody = await response.json();
+      const responseBody = await response.json();
       // console.log(responseBody);
 
-      if (true) {
+      if (responseBody) {
         setCSSignUp(true);
         // console.log(responseBody);
       } else {

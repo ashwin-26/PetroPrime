@@ -14,6 +14,8 @@ import SupplierLogin from './components/Login/SupplierLogin';
 import SupplierSignup from './components/SignUp/SupplierSignUp';
 import ProductForm from './components/ProductForm';
 
+
+
 const App = () => {
 
   const [customerLoggedIn, setCustomerLoggedIn] = useState(false);
@@ -90,6 +92,7 @@ const App = () => {
               )
             }
           />
+      
           {/* <Route path="/Customer/Register" component={CustomerSignup} /> */}
           <Route
             path="/Customer/Register"
@@ -101,6 +104,7 @@ const App = () => {
               )
             }
           />
+       
             <Route
             path="/Supplier/Login"
             render={() =>
@@ -111,6 +115,7 @@ const App = () => {
               )
             }
           />
+        
           {/* <Route path="/Customer/Register" component={CustomerSignup} /> */}
           <Route
             path="/Supplier/Register"
@@ -121,7 +126,10 @@ const App = () => {
                 <SupplierSignup onRegistration={handleSupplierRegistration} />
               )
             }
+            
           />
+        
+
 
 
 

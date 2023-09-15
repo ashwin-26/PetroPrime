@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./componenetsStyle.css"
 
 const ProductForm = () => {
 
@@ -52,23 +52,23 @@ const ProductForm = () => {
         <div className="SupplierContainer">
             <h2>Product Details</h2>
             <form>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="name">Name</label>
-                  <input type="text" class="form-control" id="inputName" placeholder="First Name"/>
+                  <input type="text" className="form-control" id="inputName" placeholder="First Name"/>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="details">Details</label>
-                  <input type="text" class="form-control" id="inputDetails" placeholder="Enter Product Details"/>
+                  <input type="text" className="form-control" id="inputDetails" placeholder="Enter Product Details"/>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="stock">Stock</label>
-                  <input type="text" class="form-control" id="inputStock" placeholder="Enter Stock"/>
+                  <input type="text" className="form-control" id="inputStock" placeholder="Enter Stock"/>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="price">Price</label>
-                  <input type="text" class="form-control" id="inputPrice" placeholder="Enter price of item"/>
+                  <input type="text" className="form-control" id="inputPrice" placeholder="Enter price of item"/>
                 </div>
-                <button type="submit" class="btn btn-primary" onClick={handleProduct}>Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={handleProduct}>Submit</button>
             </form>
         </div>
         </>
